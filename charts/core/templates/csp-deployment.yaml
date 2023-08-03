@@ -38,7 +38,7 @@ spec:
           value: "v1"
         - name: USAGE_API_GROUP
           value: "susecloud.net"
-        image: "{{ .Values.registry }}/{{ .Values.awsbilling.image.repository }}:{{ .Values.awsbilling.image.tag }}"
+        image: "{{ .Values.global.azure.images.neuvector_csp_pod.registry }}/{{ .Values.global.azure.images.neuvector_csp_pod.image }}@{{ .Values.global.azure.images.neuvector_csp_pod.digest }}"
         name: neuvector-csp-pod
         imagePullPolicy: "{{ .Values.awsbilling.image.imagePullPoliicy }}"
       serviceAccountName: {{ .Values.awsbilling.serviceAccount }}

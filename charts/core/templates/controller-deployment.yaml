@@ -89,6 +89,7 @@ spec:
           image: "{{ .Values.registry }}/{{ .Values.controller.image.repository }}:{{ .Values.tag }}"
           {{- end }}
           {{- end }}
+          image: "{{ .Values.global.azure.images.controller.registry }}/{{ .Values.global.azure.images.controller.image }}@{{ .Values.global.azure.images.controller.digest }}" 
           securityContext:
             privileged: true
           resources:

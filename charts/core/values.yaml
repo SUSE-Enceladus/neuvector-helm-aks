@@ -15,7 +15,33 @@ leastPrivilege: false
 global: # required for rancher authentication (https://<Rancher_URL>/)
   cattle:
     url:
-
+  azure:
+    identity:
+      # Application's Managed Service Identity (MSI) Client ID. ClientID can be used to generate authentication token to communicate to external services like Microsoft Marketplace Metering API
+      clientId: "DONOTMODIFY" # Azure populates this value at deployment time
+    marketplace:
+      # id of the plan purchased for the Azure Marketplace Kubernetes application,to be used in usage event payload to metering api, for more information please refer: https://learn.microsoft.com/en-us/partner-center/marketplace/marketplace-metering-service-apis
+      planId: "DONOTMODIFY" # Azure populates this value at deployment time
+    extension:
+      # resource id of the Azure Marketplace Kubernetes application,to be used in usage event payload to metering api, for more information please refer: https://learn.microsoft.com/en-us/partner-center/marketplace/marketplace-metering-service-apis
+      resourceId: "DONOTMODIFY" # application's Azure Resource ID, Azure populates this value at deployment time
+    images:
+      neuvector_csp_pod:
+        digest: sha256:ba65e05129cb148e1fe0c950e6d00c766fb8fb71ee3d98e05608ff1fbcd9af5c
+        image: neuvector-billing-azure-by-suse-llc
+        registry: susellcforazuremarketplace.azurecr.io
+      controller:
+        digest: sha256:b3818e4eee6dae0759c1280485de0e1700abfd0cbbc4f5188ec45d1579c726c2
+        image: controller
+        registry: docker.io/neuvector
+      manager:
+        digest: sha256:c5b6da2ffbc9f63e8d250d5985f722830dfb5cc8958e8f64f7e14edc18b584fa
+        image: manager
+        registry: docker.io/neuvector
+      scanner:
+        image: scanner
+        registry: docker.io/neuvector
+        digest: sha256:d0c0f29b21d5c785670a681a732b8159f1b97b2ab909b5af65c940f4d119d150
 internal: # enable when cert-manager is installed for the internal certificates
   certmanager: 
     enabled: false
@@ -494,7 +520,7 @@ crdwebhook:
   type: ClusterIP
 
 awsbilling:
-  enabled: false
+  enabled: true
   accountNumber: ""
   roleName: ""
   serviceAccount: csp
