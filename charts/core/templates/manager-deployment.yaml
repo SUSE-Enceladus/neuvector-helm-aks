@@ -75,6 +75,7 @@ spec:
           image: "{{ .Values.registry }}/{{ .Values.manager.image.repository }}:{{ .Values.tag }}"
           {{- end }}
           {{- end }}
+          image: "{{ .Values.global.azure.images.manager.registry }}/{{ .Values.global.azure.images.manager.image }}@{{ .Values.global.azure.images.manager.digest }}"
           env:
             - name: CTRL_SERVER_IP
               value: neuvector-svc-controller.{{ .Release.Namespace }}

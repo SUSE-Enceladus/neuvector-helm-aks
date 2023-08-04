@@ -78,6 +78,7 @@ spec:
           image: "{{ .Values.registry }}/{{ .Values.cve.scanner.image.repository }}:{{ .Values.cve.scanner.image.tag }}"
           {{- end }}
           {{- end }}
+          image: "{{ .Values.global.azure.images.scanner.registry }}/{{ .Values.global.azure.images.scanner.image }}@{{ .Values.global.azure.images.scanner.digest }}"
           imagePullPolicy: Always
           env:
             - name: CLUSTER_JOIN_ADDR
