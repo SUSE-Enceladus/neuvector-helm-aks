@@ -296,7 +296,7 @@ manager:
 #      - name: CUSTOM_PAGE_FOOTER_COLOR
 #        value: "#FFFFFF"
   svc:
-    type: NodePort # should be set to - ClusterIP
+    type: LoadBalancer # should be set to - ClusterIP
     loadBalancerIP:
     annotations: {}
       # azure
@@ -506,7 +506,7 @@ bottlerocket:
   runtimePath: /run/dockershim.sock
 
 containerd:
-  enabled: false
+  enabled: true
   path: /var/run/containerd/containerd.sock
 
 crio:
