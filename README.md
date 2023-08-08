@@ -1,3 +1,23 @@
+# NeuVector AzurePAYG Contributor Notes 
+Here is the repository flow for Azure PAYG
+
+![alt text](https://github.com/SUSE-Enceladus/neuvector-helm-aks/blob/payg-common/azurepayg_branches.png?raw=true)
+
+The payg-llc and payg-ltd branches are based off of payg-common (You will still see this commit difference because payg-common inherits from neuvector-helm-aks/master)
+Commits that change the structure of the Azure helm charts in a way that is common to both tax geographies should be made in the payg-common branch.
+Commits that are specific to offerings in the llc or ltd tax geographies should be made on the matching branch.
+After making changes on payg-common, it is important to rebase the payg-llc and payg-ltd branches with those changes
+
+To work on payg-llc and payg-ltd
+git checkout <payg-llc/payg-ltd> go to specific branch
+git remote update
+git rebase -i origin/payg-common
+
+To work on payg-common
+git checkout payg-common
+git remote update
+git rebase -i origin/master
+
 # NeuVector Helm charts
 
 A collection of Helm charts for deploying NeuVector product in Kubernetes and Openshift clusters.
