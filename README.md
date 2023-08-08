@@ -9,6 +9,7 @@ Commits that are specific to offerings in the llc or ltd tax geographies should 
 After making changes on payg-common, it is important to rebase the payg-llc and payg-ltd branches with those changes
 
 To work on payg-llc and payg-ltd
+```
 git checkout <payg-llc/payg-ltd> go to specific branch
 git remote update
 git rebase -i origin/payg-common
@@ -17,7 +18,7 @@ To work on payg-common
 git checkout payg-common
 git remote update
 git rebase -i origin/master
-
+```
 # NeuVector Helm charts
 
 A collection of Helm charts for deploying NeuVector product in Kubernetes and Openshift clusters.
