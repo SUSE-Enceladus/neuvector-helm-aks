@@ -13,11 +13,15 @@ To work on payg-llc and payg-ltd
 git checkout <payg-llc/payg-ltd> go to specific branch
 git remote update
 git rebase -i origin/payg-common
+git push origin <payg-llc/payg-ltd>
+```
 
 To work on payg-common
+```
 git checkout payg-common
 git remote update
 git rebase -i origin/master
+git push origin payg-common
 ```
 # NeuVector Helm charts
 
